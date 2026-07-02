@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "gazzetta-variable";
+  src: url("/typekit/fonts/gazzetta-variable-n4.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "gazzetta-variable";
+  src: url("/typekit/fonts/gazzetta-variable-i4.woff2") format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 100 900;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "helvetica-neue-lt-pro-cond";
+  src: url("/typekit/fonts/helvetica-neue-lt-pro-cond-n7.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "helvetica-neue-lt-pro";
+  src: url("/typekit/fonts/helvetica-neue-lt-pro-n3.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "helvetica-neue-lt-pro";
+  src: url("/typekit/fonts/helvetica-neue-lt-pro-n4.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "helvetica-neue-lt-pro";
+  src: url("/typekit/fonts/helvetica-neue-lt-pro-n5.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "helvetica-neue-lt-pro";
+  src: url("/typekit/fonts/helvetica-neue-lt-pro-n7.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+.tk-gazzetta-variable { font-family: "gazzetta-variable", sans-serif; }
+.tk-helvetica-neue-lt-pro-cond { font-family: "helvetica-neue-lt-pro-cond", sans-serif; }
+.tk-helvetica-neue-lt-pro { font-family: "helvetica-neue-lt-pro", sans-serif; }
