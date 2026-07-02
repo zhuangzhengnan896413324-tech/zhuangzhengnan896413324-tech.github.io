@@ -8955,7 +8955,7 @@
       s4 = { closeY: 100, controlY: 100, edgeY: 100, originY: 100 },
       s5 = { closeY: 100, controlY: 100, edgeY: 50, originY: 100 },
       s8 = { closeY: 100, controlY: 0, edgeY: 0, originY: 100 },
-      s6 = 1.3 + 0.65 + 0,
+      s6 = 0.76,
       s9 = "experience-route-transition-next-clip";
     function s7({ onComplete: e, onReveal: t, transition: r }) {
       let n = (0, Z.useRef)(null),
@@ -8994,6 +8994,12 @@
             d.replaceChildren(
               (function () {
                 var e, t;
+                let x = document.createElement("div");
+                return (
+                  (x.className =
+                    "page-transition__source-frame page-transition__source-frame--lite"),
+                  x
+                );
                 let r,
                   n,
                   i = document.querySelector(
@@ -9173,20 +9179,20 @@
               {
                 "--transition-content-blur": "0px",
                 "--transition-content-brightness": 0.32,
-                duration: 0.5,
-                ease: "power2.inOut",
+                duration: 0.28,
+                ease: "power2.out",
               },
               0,
             ),
             m.to(
               p,
-              { ...s5, duration: 1.3, ease: s2, onUpdate: () => on(c, p) },
+              { ...s5, duration: 0.48, ease: s2, onUpdate: () => on(c, p) },
               0,
             ),
             m.to(
               p,
-              { ...s8, duration: 1.3, ease: s3, onUpdate: () => on(c, p) },
-              0.65,
+              { ...s8, duration: 0.48, ease: s3, onUpdate: () => on(c, p) },
+              0.24,
             ),
             m.to(u, { autoAlpha: 0, duration: 0.18, ease: "none" }, s6 + 0.02),
             (o.current = m),
@@ -56147,8 +56153,25 @@ No matching component was found for:
             (t.generateMipmaps = !1),
             (t.magFilter = 1006),
             (t.minFilter = 1006),
-            (t.anisotropy = Math.min(B.capabilities.getMaxAnisotropy(), 8)));
-          let n = new Set();
+            (t.anisotropy = 1));
+          let n = new Set(),
+            i = () => {
+              e.pause();
+            },
+            a = () => {
+              "/" === window.location.pathname && !document.hidden
+                ? e.play().catch(() => {})
+                : e.pause();
+            },
+            s = (e) => {
+              let t = e.detail?.href;
+              t && "/" !== new URL(t, window.location.origin).pathname
+                ? i()
+                : a();
+            },
+            o = () => {
+              a();
+            };
           return (
             r.traverse((e) => {
               e instanceof ca &&
@@ -56185,13 +56208,25 @@ ${t}`,
                   },
                 );
             }),
-            e.play().catch(() => {}),
+            window.addEventListener("signal-pole:navigate", s),
+            window.addEventListener("signal-pole:video-sync", a),
+            window.addEventListener("signal-pole:video-pause", i),
+            window.addEventListener("signal-pole:video-play", a),
+            window.addEventListener("popstate", a),
+            document.addEventListener("visibilitychange", o),
+            a(),
             () => {
               (n.forEach((e) => {
                 (e.map === t && (e.map = null),
                   e.emissiveMap === t && (e.emissiveMap = null),
                   (e.needsUpdate = !0));
               }),
+                window.removeEventListener("signal-pole:navigate", s),
+                window.removeEventListener("signal-pole:video-sync", a),
+                window.removeEventListener("signal-pole:video-pause", i),
+                window.removeEventListener("signal-pole:video-play", a),
+                window.removeEventListener("popstate", a),
+                document.removeEventListener("visibilitychange", o),
                 e.pause(),
                 e.removeAttribute("src"),
                 e.load(),
@@ -66643,12 +66678,12 @@ return orthographicDepthToViewZ(depth,cameraNear,cameraFar);
       isEnteringRoute: n,
       route: i,
     }) {
-      let a = n ? 0.84 : 0.14,
+      let a = n ? 0.24 : 0.08,
         s = e ?? i;
       return "projects" === i
         ? (0, q.jsx)(wp, {
             freezeGallery: t,
-            galleryEntryDelay: r ? 0.95 : void 0,
+            galleryEntryDelay: r ? 0.24 : void 0,
             textRevealDelay: a,
             textRevealKey: s,
           })
